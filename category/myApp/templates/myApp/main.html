@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database-TermProject</title>
+</head>
+<body>
+    <a href="../createTable">CreateTable</a>
+    <a href="../insertData">InsertData</a>
+    <a href="../select1">Select1</a>
+    <a href="../select2">Select2</a>
+    <a href="../select3">Select3</a>
+    <a href="../select4">Select4</a>
+    {% if select1 %}
+    <h2>Find the average hard disk size of PCs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Disk Size</th>
+            </tr>
+    {% for diskSize in select1 %}
+            <tr>
+                <td>{{ diskSize.diskSize }}</td>
+            </tr>
+    {% endfor %}
+        </thead>
+    </table>
+    {% endif %}
+
+    {% if select2 %}
+    <h2>Find the average speed of laptop for each maker</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Laptop Maker</th>
+                <th>Average Speed</th>
+            </tr>
+        </thead>
+    {% for maker in select2 %}
+        <tr>
+            <td>{{ maker.maker }}</td>
+            <td>{{ maker.averageSpeed }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    {% endif %}
+
+    {% if select3 %}
+    <h2>Find the price of laptop, which is the only laptop model of the maker</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Laptop Price</th>
+            </tr>
+        </thead>
+    {% for model in select3 %}
+        <tr>
+            <td>{{ model.price }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    {% endif %}
+
+
+    {% if select4 %}
+    <h2>Find the model and price of the printer of the highest price of each maker</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+    {% for elem in select4 %}
+        <tr>
+            <td>{{ elem.model }}</td>
+            <td>{{ elem.price }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    {% endif %}
+</body>
+</html>

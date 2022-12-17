@@ -1,0 +1,29 @@
+CREATE TABLE Product (
+    maker CHAR(10),
+    model int PRIMARY KEY,
+    type CHAR(20)
+)
+#
+CREATE TABLE Printer (
+    model int PRIMARY KEY,
+    color boolean,
+    type CHAR(20),
+    price int
+)
+#
+CREATE TABLE PC (
+    model int PRIMARY KEY,
+    speed float,
+    ram   int,
+    hd    int,
+    price int
+)
+#
+CREATE TABLE Laptop (
+    model int PRIMARY KEY,
+    speed float,
+    ram   int,
+    hd    int,
+    screen float,
+    price int
+)

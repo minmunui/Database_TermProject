@@ -1,0 +1,27 @@
+SELECT AVG(hd)
+FROM PC
+#
+SELECT maker, AVG(speed)
+FROM Product NATURAL JOIN Laptop
+GROUP BY maker
+ORDER BY maker ASC
+#
+SELECT price
+FROM Laptop NATURAL JOIN Product
+WHERE maker in
+ (SELECT maker
+ FROM Laptop NATURAL JOIN Product
+ GROUP BY maker
+ HAVING count(model) = 1)
+#
+SELECT Product.model, Printer.price
+FROM Product
+INNER JOIN Printer
+ON Product.model = Printer.model
+INNER JOIN
+(SELECT maker, max(price) as maxprice
+FROM Product
+INNER JOIN Printer
+ON Product.model = Printer.model
+GROUP BY maker) as MaxPrices
+ON MaxPrices.maker = Product.maker and Maxprices.maxprice = Printer.price
